@@ -1,0 +1,22 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Obj]/
+/[Build]/
+/[Builds]/
+/[Logs]/
+/[UserSettings]/
+/[MemoryCaptures]/
+
+# Visual Studio / Rider / VS Code 関連
+.vs/
+/*.sln
+/*.csproj
+/*.unityproj
+/*.suo
+/*.user
+/*.userosscache
+/*.sln.docstates
+
+# OS 関連
+.DS_Store
+Thumbs.db
