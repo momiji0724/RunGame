@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AutoRunner : MonoBehaviour
 {
+    private GameObject _player;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,20 +12,24 @@ public class AutoRunner : MonoBehaviour
         stage.transform.localScale = new Vector3(3, 1, 100);
         stage.transform.position = new Vector3(0, 0, 40);
 
-        var player = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        player.transform.position = new Vector3(0, 0.75f, -5);
-        player.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+        _player = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        _player.transform.position = new Vector3(0, 0.75f, -5);
+        _player.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+        _player.AddComponent<Rigidbody>();
 
         for(var i = 0;i<10; i++) 
         {
+            var x = Random.Range(-1, 2);
             var obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            obstacle.transform.position = new Vector3(0, 1, i * 5);
+            obstacle.transform.position = new Vector3(x, 1, i * 5);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        var r = _player.GetComponent<Rigidbody>();
+        r.AddForce(0, 0, 1);
         
     }
 }
